@@ -1,0 +1,11 @@
+
+DROP EVENT IF EXISTS kill_other_processes;
+DELIMITER $$
+CREATE EVENT kill_other_processes
+  ON SCHEDULE EVERY 15 MINUTE STARTS '2018-07-01 00:00:00'
+  ON COMPLETION PRESERVE
+DO
+BEGIN
+    CALL kill_other_processes();
+END $$
+DELIMITER ;
